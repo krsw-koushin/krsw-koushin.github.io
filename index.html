@@ -7,9 +7,12 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>-->
 	<script type="text/javascript" >
+
 	function translateToSongo(str){
 		str = str.replace(/私|僕|自分|わたし|ぼく|ワイ|わたくし|わし/g,"当職");
 		str = str.replace(/です。/g,"ですを");
+		str = str.replace(/ます。/g,"ますを");
+
 		str = str.replace(/ニート/g,"臥薪嘗胆民");
 		str = str.replace(/ありがとう。/g,"出会いに感謝。");
 		str = str.replace(/近づ/g,"ちかず");
@@ -18,12 +21,17 @@
 		str = str.replace(/FAX/g,"PAC3");
 		str = str.replace(/更新/g,"恒心");
 		str = str.replace(/なにより/g,"なりより");
-		str = str.replace(/である。|だ。|だよ。|よ。|や。|で。|ぜ。/g,"ナリ。");
 		str = str.replace(/出る|でる/g,"ああああああああああ！！！！！！！！！！！！！！！！！でりゅううううううううううううううう！！！！！！！！！！！！！！！！");
-		str = str.replace(/ばか|馬鹿|バカ|あほ|阿呆|アホ/g,"頭唐澤貴洋");
-		str = str.replace(/役立たず|無才|クズ/g,"無能");
+		str = str.replace(/ばか|馬鹿|バカ/g,"頭唐澤貴洋");
+		str = str.replace(/役立たず|無才|クズ|あほ|阿呆|アホ/g,"無能");
 		str = str.replace(/世界/g,"優しい世界");
 
+		/*12との出会いに感謝*/
+		str = str.replace(/ありがとう|有り難う|有難う|ありがたい|有り難い|有難い|サンキュー|サンガツ/g,"人との出会いに感謝。");
+		str = str.replace(/感動す|感動し|感激し|感激す/g,"身が震え");
+		str = str.replace(/である。|だ。|や。|で。|ぜ。|やで。|んや。|やぞ。|うや。/g,"ナリ。");
+		str = str.replace(/だよ。|ですよ。|よ。|うよ。/g,"ナリよ。");
+		str = str.replace(/た。/g,"たナリよ。");
 
 
 		return str;
@@ -33,6 +41,12 @@
 		var value = translateToSongo($("#songoText").val());
 		$("#songoText").val(value);
 	}
+
+	$("#buttonTrans").click(function(){
+		var value = translateToSongo($("#songoText").val());
+		$("#songoText").val(value);
+		return false;
+	});
 	</script>
 
 </head>
@@ -47,7 +61,7 @@
     	<form action="#" method="post">
 			<label for="text">テキスト:</label>
 			<textarea name="text" id="songoText" rows="4" cols="40"></textarea>
-			<button onclick="onClick(); return false;">翻訳するナリ</a>
+			<input type="button" onclick="onClick();" id="buttonTrans" value="翻訳"></input>
 		</form>
 	</p>
   </div><!-- /content -->
