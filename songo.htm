@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>尊語ジェネレータ</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>-->
+	<script type="text/javascript" >
+	function translateToSongo(str){
+		str = str.replace(/私|僕|自分|わたし|ぼく|ワイ|わたくし|わし/g,"当職");
+		str = str.replace(/です。/g,"ですを");
+		str = str.replace(/ニート/g,"臥薪嘗胆民");
+		str = str.replace(/ありがとう。/g,"出会いに感謝。");
+		str = str.replace(/近づ/g,"ちかず");
+		str = str.replace(/怖い/g,"身が震える");
+		str = str.replace(/ありがとう。/g,"出会いに感謝。");
+		str = str.replace(/FAX/g,"PAC3");
+		str = str.replace(/更新/g,"恒心");
+		str = str.replace(/なにより/g,"なりより");
+		str = str.replace(/である。|だ。|だよ。|よ。|や。|で。|ぜ。/g,"ナリ。");
+		str = str.replace(/出る|でる/g,"ああああああああああ！！！！！！！！！！！！！！！！！でりゅううううううううううううううう！！！！！！！！！！！！！！！！");
+		str = str.replace(/ばか|馬鹿|バカ|あほ|阿呆|アホ/g,"頭唐澤貴洋");
+		str = str.replace(/役立たず|無才|クズ/g,"無能");
+		str = str.replace(/世界/g,"優しい世界");
+
+
+
+		return str;
+	}
+
+	function onClick(){
+		var value = translateToSongo($("#songoText").val());
+		$("#songoText").val(value);
+	}
+	</script>
+
+</head>
+<body><div data-role="page">
+
+  <div data-role="header">
+    <h1>尊語ジェネレータ</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <p>
+    	<form action="#" method="post">
+			<label for="text">テキスト:</label>
+			<textarea name="text" id="songoText" rows="4" cols="40"></textarea>
+			<button onclick="onClick(); return false;">翻訳するナリ</a>
+		</form>
+	</p>
+  </div><!-- /content -->
+
+</div><!-- /page -->
+</body>
+</html>
