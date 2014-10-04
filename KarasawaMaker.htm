@@ -7,6 +7,8 @@
 <body>
 	<h1>唐澤透かしくん</h1>
 	<form>
+		<p>使い方</p>
+		<p>下のフォームで色々設定後、画像の透かしを置きたいところをクリックする。<br>保存したいときは、「画像に変換」ボタンを使う</p>
 		<p><input type="file" name="image" id="image" accept="image/*"></p>
 		<p><label for="range">透明度</label><input type="range" name="range" id="range" min="0" max="100"></p>
 		<p><label for="text">テキスト</label><input type="text" name="text" id="text"></p>
@@ -49,7 +51,7 @@
 	});
 	$('#save').click(function(){
 		var png = canvas.toDataURL();
-		$('#convertedImg').attr('src',png);
+		document.location.href=png;
 	});
 	</script>
 </body>
